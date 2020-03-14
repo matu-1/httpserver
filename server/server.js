@@ -15,9 +15,10 @@ app.use(bodyParser.json());
 //config global de rutas
 app.use(require('./routes/index'));
 
-mongoose.connect(process.env.URL_DB, {
+mongoose.connect('mongodb://localhost:27017/cafe', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  useCreateIndex: true,
 }, err => {
   if(err) throw err;
   console.log('conectado a la bd.. !!!');
